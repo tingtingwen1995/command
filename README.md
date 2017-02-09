@@ -34,8 +34,10 @@ git config user.name [name]
 
 ###获取帮助
 git help
+
+###获取制定帮助
 git help [name]  
->获取制定帮助  例如：git help config 或者 git help add 等
+>例如：git help config 或者 git help add 等
 
 ###查看版本
 git --version  
@@ -52,22 +54,18 @@ git clone [远程仓库项目名]
 ###clone仓库到指定目录
 git clone [远程仓库项目名]  '目录名称'
 
-###查看项目当前缓存状态   
-git status -s   
->显示：？ 还未添加到缓存
-
 
 
 
 ###添加项目到缓存   
 git add [文件名]
->可以同时添加多个文件或单个问价，显示：A 已添加到缓存
+>可以同时添加多个文件或单个文件
 
 ###添加目录中的所有文件
 git add .    
 >与 git add * 效果一致   不过那只是因为我们这还木有子目录，不需要递归地添加新文件。
 
-###列出添加缓存变更部分
+###列出添加缓存之前变更部分
 git add -p 
 >请查看《Pro Git》中 git add 的 “-p” 参数，以了解更多关于提交文件的灵活性的例子。
 
@@ -76,10 +74,14 @@ git add -p
 
 ###查看文件在工作目录与缓存的状态
 git status 
->
-1. -s //以获得简短的结果输出    
-2. D //表示工作区已删除文件   
-3. MM //在简短输出中，有两栏。第一栏是缓存的，第二栏则是工作目录的。
+
+###以获得简短的结果输出 
+git status -s
+> 输出结果前缀 
+？  还未添加到缓存   
+A   已添加到缓存   
+M   文件添加到缓存后有修改    
+D   表示工作区已删除文件     
 
 
   
@@ -91,24 +93,27 @@ git diff
 git diff –-cached 
 
 ###查看已缓存的与未缓存的所有改动 
-git diff HEAD -- file  
+git diff HEAD --file  
 
 ###显示摘要而非整个 diff
 git diff –-stat 
 
 ###比较两个不同的分支 
-git diff branchA branchB  
+git diff branchA ^branchB/branchB  
 
 
 
-###记录缓存内容的快照 
+###提交到本地仓库 
 git commit 
 
-###-m 选项以在命令行中提供提交注释
-git commit -m 'my hola mundo changes'   
+###-m 为当前提交添加注释
+git commit -m '注释内容'   
 
 ###自动将在提交前将已记录、修改的文件放入缓存区
 git commit -a 
+
+###自动添加到缓存，并以注释方式提交
+git commit -am  '注释内容'
 
 
 
@@ -123,20 +128,20 @@ git rm
 
 
 
-###来创建分支 
+###列出本地仓库分支
+git branch 
+
+###列出本地仓库分支(包括最近提交的 “hash值” 和  “文字注释”)
+git branch -v 
+
+###列出远程仓库分支
+git branch -r 
+
+###创建分支 
 git branch (branchname) 
 
 ###命令切换到该分支
 git checkout (branchname)
-
-###列出可用的分支
-git branch 
-
-###列出远程分支
-git branch -r 
-
-###列出可用的分支(包括最近提交和hash值)
-git branch -v 
 
 ###创建新分支，并立即切换到它
 git checkout -b (branchname) 
@@ -160,7 +165,7 @@ $ git log --oneline --decorate --graph
 
 
 ###将分支合并到你的当前分支
-git merge 
+git merge (branchname) 
 
 ###合并仓库或分支
 git merge github/master 
@@ -168,8 +173,9 @@ git merge github/master
 
 
 
-###查看commit记录（显示一个分支中提交的更改记录）
-git log  
+###查看commit记录 
+git log 
+>显示一个分支中提交的更改记录 
 
 ###查看commit最后一次提交记录
 git log -n 1 
