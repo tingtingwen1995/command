@@ -4,6 +4,8 @@
 
 
 ###路劲跳转 
+cd E: 
+
 cd E:/hiGit  
 
 ###返回上级目录
@@ -28,7 +30,8 @@ git config user.name [name]
 
 ###获取帮助
 git help
-git help [name]  //获取制定帮助  例如：git help config 或者 git help add 等
+git help [name]  
+>获取制定帮助  例如：git help config 或者 git help add 等
 
 ###查看版本
 git --version  
@@ -56,9 +59,9 @@ git add -p
 ###查看文件在工作目录与缓存的状态
 git status 
 >
-1、-s //以获得简短的结果输出
-2、D //表示工作区已删除文件
-3、MM //在简短输出中，有两栏。第一栏是缓存的，第二栏则是工作目录的。
+1。 -s //以获得简短的结果输出
+2。 D //表示工作区已删除文件
+3。 MM //在简短输出中，有两栏。第一栏是缓存的，第二栏则是工作目录的。
 
   
 ###尚未缓存的改动
