@@ -1,54 +1,62 @@
-### Git 常用命令
+# Git 常用命令
 
 >记录了Git 在使用中常用到的命令 
 
 
-#常用路劲命令
+###路劲跳转 
+cd E:/hiGit  
 
-cd E:/hiGit //路劲跳转 
+###返回上级目录
+cd ../  
 
-cd ../ //返回上级目录
 
-
-#用户配置文件
-
+###用户配置文件
 $ git config --global user.name "John Doe"
 
 $ git config --global user.email johndoe@ example.com
 
 
-#查看配置信息
-
+###查看配置信息
 git config --list
 
 
-#直接查阅某个环境变量的设定，只要把特定的名字跟在后面即可 
-
+###直接查阅某个环境变量的设定，只要把特定的名字跟在后面即可 
 $ git config user.name [name]
 
 
-#获取帮助
-
+###获取帮助
 git help
 
 git help [name]  //获取制定帮助  例如：git help config 或者 git help add 等
 
 
-#查看版本
-
+###查看版本
 git --version 
 
 
+###列出文件
+ls
 
 
+###列出目录
+ls -a 
 
-ls //列出文件
-ls -a //列出目录
-git init  [文件夹]  //新建仓库
-git clone [项目名]  //复制仓库
-git status -s   //查看项目当前状态   显示：？ 还未添加到缓存
-git add [文件名] [文件名]   //添加项目到缓存   显示：A 已添加到缓存
-git add .    //所在的目录中的所有文件添加  效果一致  git add * 不过那只是因为我们这还木有子目录，不需要递归地添加新文件。
+
+###新建仓库
+git init  [文件夹]  
+
+###复制仓库
+git clone [项目名]  
+
+###查看项目当前状态   显示：？ 还未添加到缓存
+git status -s   
+
+###添加项目到缓存   显示：A 已添加到缓存
+git add [文件名] [文件名]   
+
+###所在的目录中的所有文件添加
+git add .    
+>与 git add * 效果一致   不过那只是因为我们这还木有子目录，不需要递归地添加新文件。
 AM 添加到缓存的文件，更改后会查看状态会 显示：  AM
 git add -p //列出变更部分，---请查看《Pro Git》中 git add 的 “-p” 参数，以了解更多关于提交文件的灵活性的例子。
 git status //查看你的文件在工作目录与缓存的状态  
