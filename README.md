@@ -1,27 +1,45 @@
-# Git 常用命令
+### Git 常用命令
 
 >记录了Git 在使用中常用到的命令 
 
-//用户配置文件
+
+#常用路劲命令
+
+cd E:/hiGit //路劲跳转 
+
+cd ../ //返回上级目录
+
+
+#用户配置文件
+
 $ git config --global user.name "John Doe"
+
 $ git config --global user.email johndoe@ example.com
 
-//查看配置信息
+
+#查看配置信息
+
 git config --list
 
-//直接查阅某个环境变量的设定，只要把特定的名字跟在后面即可 
+
+#直接查阅某个环境变量的设定，只要把特定的名字跟在后面即可 
+
 $ git config user.name [name]
 
-//获取帮助
+
+#获取帮助
+
 git help
+
 git help [name]  //获取制定帮助  例如：git help config 或者 git help add 等
 
-//查看版本
+
+#查看版本
+
 git --version 
 
 
-cd E:/hiGit //路劲跳转 
-cd ../ //返回上级目录
+
 
 
 ls //列出文件
