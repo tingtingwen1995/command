@@ -16,14 +16,15 @@ ls
 ls -a
 
 ###用户配置文件
-$ git config --global user.name "John Doe"
-$ git config --global user.email johndoe@ example.com
+git config --global user.name "John Doe"
+
+git config --global user.email johndoe@ example.com
 
 ###查看配置信息
 git config --list
 
 ###直接查阅某个环境变量的设定，只要把特定的名字跟在后面即可 
-$ git config user.name [name]
+git config user.name [name]
 
 ###获取帮助
 git help
