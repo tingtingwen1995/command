@@ -9,38 +9,28 @@ cd E:/hiGit
 ###返回上级目录
 cd ../  
 
+###列出文件
+ls
+
+###列出目录
+ls -a
 
 ###用户配置文件
 $ git config --global user.name "John Doe"
-
 $ git config --global user.email johndoe@ example.com
-
 
 ###查看配置信息
 git config --list
 
-
 ###直接查阅某个环境变量的设定，只要把特定的名字跟在后面即可 
 $ git config user.name [name]
 
-
 ###获取帮助
 git help
-
 git help [name]  //获取制定帮助  例如：git help config 或者 git help add 等
 
-
 ###查看版本
-git --version 
-
-
-###列出文件
-ls
-
-
-###列出目录
-ls -a 
-
+git --version  
 
 ###新建仓库
 git init  [文件夹]  
@@ -56,51 +46,80 @@ git add [文件名] [文件名]
 
 ###所在的目录中的所有文件添加
 git add .    
->与 git add * 效果一致   不过那只是因为我们这还木有子目录，不需要递归地添加新文件。
-AM 添加到缓存的文件，更改后会查看状态会 显示：  AM
-git add -p //列出变更部分，---请查看《Pro Git》中 git add 的 “-p” 参数，以了解更多关于提交文件的灵活性的例子。
-git status //查看你的文件在工作目录与缓存的状态  
--s //以获得简短的结果输出
-D //表示工作区已删除文件
-MM //在简短输出中，有两栏。第一栏是缓存的，第二栏则是工作目录的。
+>与 git add * 效果一致   不过那只是因为我们这还木有子目录，不需要递归地添加新文件。AM 添加到缓存的文件，更改后会查看状态会 显示：  AM
 
-git diff //显示已写入缓存与已修改但尚未写入缓存的改动的区别
+###列出变更部分
+git add -p 
+>请查看《Pro Git》中 git add 的 “-p” 参数，以了解更多关于提交文件的灵活性的例子。
 
-git diff #尚未缓存的改动
-git diff –-cached #查看已缓存的改动
-git diff HEAD -- file查看已缓存的与未缓存的所有改动   
-git diff –-stat 显示摘要而非整个 diff
+###查看文件在工作目录与缓存的状态
+git status 
+>
+1、-s //以获得简短的结果输出
+2、D //表示工作区已删除文件
+3、MM //在简短输出中，有两栏。第一栏是缓存的，第二栏则是工作目录的。
 
-git diff branchA branchB  比较两个不同的分支 
+  
+###尚未缓存的改动
+git diff 
+
+###查看已缓存的改动
+git diff –-cached 
+
+###查看已缓存的与未缓存的所有改动 
+git diff HEAD -- file  
+
+###显示摘要而非整个 diff
+git diff –-stat 
+
+###比较两个不同的分支 
+git diff branchA branchB  
+
+###记录缓存内容的快照 
+git commit 
+
+###-m 选项以在命令行中提供提交注释
+git commit -m 'my hola mundo changes'   
+
+###自动将在提交前将已记录、修改的文件放入缓存区
+git commit -a 
+
+###取消缓存已缓存的内容
+git reset HEAD -- file 
+
+###将文件从缓存区移除
+git rm 
+>默认情况下，git rm file 会将文件从缓存区和你的硬盘中（工作目录）删除。 如果要在工作目录中留着该文件，可以使用 git rm --cached
 
 
-git commit 记录缓存内容的快照 
-git commit -m 'my hola mundo changes'    //-m 选项以在命令行中提供提交注释。
-git commit -a 自动将在提交前将已记录、修改的文件放入缓存区
+#分支与合并
+
+###来创建分支 
+git branch (branchname) 
+
+###命令切换到该分支
+git checkout (branchname)
+
+###列出可用的分支
+git branch 
+
+###列出远程分支
+git branch -r 
+
+###列出可用的分支(包括最近提交和hash值)
+git branch -v 
+
+###创建新分支，并立即切换到它
+git checkout -b (branchname) 
+
+###删除分支
+git branch -d (branchname) 
 
 
+#git tag 给历史记录中的某个重要的一点打上标签
 
-git reset HEAD -- file 取消缓存已缓存的内容
-
-
-git rm 将文件从缓存区移除
-默认情况下，git rm file 会将文件从缓存区和你的硬盘中（工作目录）删除。 
-如果要在工作目录中留着该文件，可以使用 git rm --cached
-
-
-分支与合并
-git branch (branchname) 来创建分支 
-git checkout (branchname) 命令切换到该分支
-
-git branch 列出可用的分支
-git branch -r 列出远程分支
-git branch -v 列出可用的分支(包括最近提交和hash值)
-git checkout -b (branchname) 创建新分支，并立即切换到它
-git branch -d (branchname) 删除分支
-
-
-git tag 给历史记录中的某个重要的一点打上标签
-git tag -a    -a 选项意为“创建一个带注解的标签”，从而使你为标签添加注解。绝大部分时候都会这么做的。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。 我推荐一直创建带注解的标签。
+git tag -a    
+>-a 选项意为“创建一个带注解的标签”，从而使你为标签添加注解。绝大部分时候都会这么做的。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。 我推荐一直创建带注解的标签。
 现在，注意当我们执行 git log --decorate 时，我们可以看到我们的标签了：
 果我们忘了给某个提交打标签，又将它发布了，我们可以给它追加标签。在相同的命令末尾加上提交的 SHA，执行，就可以了
 $ git tag -a v0.9 558151a
