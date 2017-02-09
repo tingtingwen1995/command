@@ -198,18 +198,17 @@ git log –grep
 ###依据所引入的差值过滤
 git log -S 
 
-###显示每个提交引入的补丁
+###显示每个提交引入的补丁(更改的细节)
 git log -p 
 
 ###显示每个提交引入的改动的差值统计
-git log –stat 
+git log –-stat 
 
 ###查看历史记录的紧凑简洁的版本。
 git log --oneline 
 
 ###查看历史中什么时候出现了分支、合并。
-git log --graph 
->以下为相同的命令，开启了拓扑图选项：
+git log --graph  
 
 ###对比记录
 git log [] ^[]   
@@ -232,7 +231,7 @@ git ls-files
 
 ###列出远端别名
 git remote   
-###列出远端别名（详细） 
+###列出远端别名（详情） 
 git remote -v
 
 ###添加一个新的远端仓库别名
