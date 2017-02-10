@@ -19,7 +19,18 @@ ls
 ls -a
 
 
+###打开Git Bash查看电脑上是否已经存在SSH密钥
+cd ~/.ssh
 
+###创建新的ssh key
+ssh-keygen -t rsa -C "your_email@youremail.com"
+>执行这条命令会如上图提示文件保存路径，可以直接按Enter，然后提示输入 passphrase（密码），输入两次（可以不输直接两次Enter）
+
+###复制ssh key到github
+
+###测试 ssh 链接 github
+ssh -T git@github.com
+>出现Successfully就OK
 
 ###用户配置文件
 git config --global user.name "John Doe"
