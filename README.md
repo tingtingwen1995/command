@@ -72,6 +72,8 @@ git clone [远程仓库项目名]  '目录名称'
 git add [文件名]
 >可以同时添加多个文件或单个文件
 
+>当然如果你可以add多个文件后再一次性commit，不过如果我们改动的文件很多的话，我们可以git add .一次添加全部，但有一些是几百年都不变一次的又或者自动生成的，比如lib，gen，bin文件夹等等，我们可以在代码仓库的根目录下创建一个名为.gitignore的文件，然后编辑里面的内容，把不需提交的文件忽略掉！
+
 ###添加目录中的所有文件
 git add .    
 >与 git add * 效果一致   不过那只是因为我们这还木有子目录，不需要递归地添加新文件。
@@ -79,6 +81,7 @@ git add .
 ###列出添加缓存之前变更部分
 git add -p 
 >请查看《Pro Git》中 git add 的 “-p” 参数，以了解更多关于提交文件的灵活性的例子。
+
 
 
 
@@ -316,3 +319,23 @@ i     輸入必要文本	<ESC>
 ###参考网站
 http://www.ihref.com/read-16369.html(比较详细-适合初学者)
 http://www.cnblogs.com/newpanderking/p/4005698.html（总结比较好）  
+
+
+###丢弃最后一次的提交
+git reset --hard HEAD^
+
+###回滚到指定commit 版本(版本号-7位即可)
+git reset --hard [commit_id]
+
+###如果想切换到新的 branch 里并回归到上一次提交的状态
+git checkout -b new-topic HEAD^
+
+BTW:HEAD^等于HEAD~1，HEAD^^等于HEAD~2
+
+### 回退后，你突然后悔了，想回退回新的那个版本，可是遗憾的是，你键入git log却发现没有了最新的那个版本号，这怎么办呢... 没事，Git中给你提供了这颗"后悔药"，Git记录着你输入的每一条指令呢！键入：
+
+git reflog
+>可以查看所有分支的所有操作记录（包括（包括commit和reset的操作），包括已经被删除的commit记录，git log则不能察看已经删除了的commit记录
+
+
+>git本地操作参考:http://blog.csdn.net/hebbely/article/details/51858938
